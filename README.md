@@ -1,7 +1,6 @@
 # SB Jenkins Dynamic Plugin
 
-[![Build Status](https://buildhive.cloudbees.com/job/Seitenbau/job/sb-jenkins-dynamicparameter/badge/icon)](https://buildhive.cloudbees.com/job/Seitenbau/job/sb-jenkins-dynamicparameter/)
-
+[![Build Status](https://jenkins.ci.cloudbees.com/buildStatus/icon?job=plugins/dynamicparameter-plugin)](https://jenkins.ci.cloudbees.com/job/plugins/job/dynamicparameter-plugin/)
 
 This is a plugin for Jenkins-CI (http://jenkins-ci.org) which allows defining
 build parameters, which default values are generated dynamically by a script.
