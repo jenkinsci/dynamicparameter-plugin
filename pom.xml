@@ -11,12 +11,12 @@
   <artifactId>dynamicparameter</artifactId>
   <packaging>hpi</packaging>
   <version>0.2.1-SNAPSHOT</version>
-
+  
   <name>Jenkins Dynamic Parameter Plug-in</name>
   <description>
     This plugin allows build parameters with dynamically generated default values.
   </description>
-
+  
   <licenses>
     <license>
       <name>Apache License</name>

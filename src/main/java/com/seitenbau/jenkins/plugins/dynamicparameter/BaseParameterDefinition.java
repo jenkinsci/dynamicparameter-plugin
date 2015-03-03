@@ -237,7 +237,7 @@ public abstract class BaseParameterDefinition extends SimpleParameterDefinition
         }
       }
       
-      // for scripts executed locally, expose the current Jenkins job as "currentJob" variable
+      // for "local" scripts, expose the current Jenkins job as "currentJob" variable
       Map<String, Object> p = new HashMap<String, Object>(parameters);
       p.put("currentJob", JenkinsUtils.findCurrentProject(getUUID()));
       Callable<Object, Throwable> call = prepareLocalCall((Map)p);
