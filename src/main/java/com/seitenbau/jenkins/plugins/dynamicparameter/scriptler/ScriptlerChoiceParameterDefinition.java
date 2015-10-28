@@ -50,16 +50,16 @@ public class ScriptlerChoiceParameterDefinition extends ScriptlerParameterDefini
    * @param name parameter name
    * @param description parameter description
    * @param uuid identifier (optional)
-   * @param scriptlerScriptId Scriptler script id
+   * @param dynScriptlerScriptId Scriptler script id
    * @param parameters script parameters
    * @param remote execute the script on a remote node
    * @param choiceType type of the choice (single, multi, etc.) to display
    */
   @DataBoundConstructor
   public ScriptlerChoiceParameterDefinition(String name, String description, String uuid,
-      String scriptlerScriptId, ScriptParameter[] parameters, Boolean remote, Boolean readonlyInputField, String choiceType)
+      String dynScriptlerScriptId, ScriptParameter[] parameters, Boolean remote, Boolean readonlyInputField, String choiceType)
   {
-    super(name, description, uuid, scriptlerScriptId, parameters, remote);
+    super(name, description, uuid, dynScriptlerScriptId, parameters, remote);
     this.readonlyInputField = readonlyInputField;
     this.choiceType = choiceType;
   }

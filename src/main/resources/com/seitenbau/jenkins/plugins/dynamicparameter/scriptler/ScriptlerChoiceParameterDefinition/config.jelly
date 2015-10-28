@@ -84,11 +84,11 @@ limitations under the License.
       </j:if>
 -->
       <f:entry title="${%Script}" field="defaultValueScript">
-        <select name="scriptlerScriptId" onChange="scriptler_initDetailLink(this);scriptler_showParams(this, this.value);" >
+        <select name="dynScriptlerScriptId" onChange="scriptler_initDetailLink(this);scriptler_showParams(this, this.value);" >
           <option value="">(Default)</option>
           <j:forEach var="inst" items="${descriptor.scripts}" varStatus="loop">
             <j:choose>
-              <j:when test="${inst.id == instance.scriptlerScriptId}">
+              <j:when test="${inst.id == instance.dynScriptlerScriptId}">
                 <option value="${inst.id}" selected="selected">${inst.name}</option>
               </j:when>
               <j:otherwise>
@@ -126,7 +126,7 @@ limitations under the License.
     <script type="text/javascript">
 Event.observe(window, 'load', function() {
  var all = new Array();
- all = document.getElementsByName('scriptlerScriptId');
+ all = document.getElementsByName('dynScriptlerScriptId');
   for(var i = 0; i &lt; all.length; i++) {
         all.item(i).disabled=<j:out value="${!h.hasPermission(it.build,descriptor.requiredPermission)}" />;
       scriptler_initDetailLink(all.item(i));

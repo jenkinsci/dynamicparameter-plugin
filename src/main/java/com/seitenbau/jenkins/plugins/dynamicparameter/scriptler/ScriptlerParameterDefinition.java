@@ -46,15 +46,15 @@ public abstract class ScriptlerParameterDefinition extends BaseParameterDefiniti
    * @param name parameter name
    * @param description parameter description
    * @param uuid UUID of the parameter definition
-   * @param scriptlerScriptId Scriptler script identifier
+   * @param dynScriptlerScriptId Scriptler script identifier
    * @param parameters script parameters
    * @param remote flag showing if the script should be executed remotely
    */
   protected ScriptlerParameterDefinition(String name, String description, String uuid,
-      String scriptlerScriptId, ScriptParameter[] parameters, Boolean remote)
+      String dynScriptlerScriptId, ScriptParameter[] parameters, Boolean remote)
   {
     super(name, description, uuid, remote);
-    _scriptlerScriptId = scriptlerScriptId;
+    _scriptlerScriptId = dynScriptlerScriptId;
     _parameters = parameters;
   }
 
@@ -62,7 +62,7 @@ public abstract class ScriptlerParameterDefinition extends BaseParameterDefiniti
    * Get Scriptler script id.
    * @return scriptler script id
    */
-  public final String getScriptlerScriptId()
+  public final String getDynScriptlerScriptId()
   {
     return _scriptlerScriptId;
   }
@@ -95,7 +95,7 @@ public abstract class ScriptlerParameterDefinition extends BaseParameterDefiniti
    */
   private ParameterizedScriptCall prepareCall(Map<String, String> parmeterParams) throws Exception
   {
-    String scriptId = getScriptlerScriptId();
+    String scriptId = getDynScriptlerScriptId();
     Script script = ScriptHelper.getScript(scriptId, true);
     if (script == null)
     {
