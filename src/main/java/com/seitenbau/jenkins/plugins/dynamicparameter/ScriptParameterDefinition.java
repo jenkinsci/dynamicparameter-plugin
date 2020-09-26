@@ -51,11 +51,11 @@ public abstract class ScriptParameterDefinition extends BaseParameterDefinition
   private final String _script;
 
   /** Local class path. */
-  private final FilePath _localBaseDirectory;
-
+  private final String _localBaseDirectory;
+  
   /** Remote class path. */
   private final String _remoteBaseDirectory;
-
+  
   /** Class path. */
   private final String _classPath;
 
@@ -72,7 +72,7 @@ public abstract class ScriptParameterDefinition extends BaseParameterDefinition
   {
     super(name, description, uuid, remote);
 
-    _localBaseDirectory = new FilePath(DynamicParameterConfiguration.INSTANCE.getBaseDirectoryFile());
+    _localBaseDirectory = DynamicParameterConfiguration.INSTANCE.getBaseDirectoryFile().toString();
     _remoteBaseDirectory = DEFAULT_REMOTE_CLASSPATH;
     _classPath = classPath;
     _script = script;
@@ -82,7 +82,7 @@ public abstract class ScriptParameterDefinition extends BaseParameterDefinition
    * Local class path directory.
    * @return directory on the local node
    */
-  public final FilePath getLocalBaseDirectory()
+  public final String getLocalBaseDirectory()
   {
     return _localBaseDirectory;
   }
@@ -149,7 +149,7 @@ public abstract class ScriptParameterDefinition extends BaseParameterDefinition
     for (int i = 0; i < localClassPaths.length; i++)
     {
       String path = paths[i];
-      FilePath localClassPath = new FilePath(getLocalBaseDirectory(), path);
+      FilePath localClassPath = new FilePath(new FilePath(new File(getLocalBaseDirectory())), path);
       localClassPaths[i] = localClassPath;
     }
     return localClassPaths;
@@ -174,7 +174,7 @@ public abstract class ScriptParameterDefinition extends BaseParameterDefinition
     {
       String path = paths[i];
 
-      FilePath localClassPath = new FilePath(getLocalBaseDirectory(), path);
+      FilePath localClassPath = new FilePath(new FilePath(new File(getLocalBaseDirectory())), path);
       FilePath remoteClassPath = new FilePath(remoteBaseDirectory, path);
 
       localClassPath.copyRecursiveTo(remoteClassPath);
